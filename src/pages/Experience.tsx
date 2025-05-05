@@ -65,7 +65,7 @@ const Experience = () => {
   ];
 
   return (
-    <div className="min-h-[calc(100vh-80px)] py-10">
+    <div className="min-h-screenflex flex-col ">
       <div className="max-w-4xl mx-auto animate-fade-in">
         <h1 className="text-3xl md:text-4xl font-bold mb-6 text-portfolio-text border-b-2 border-portfolio-primary pb-2 inline-block">
           Experience
@@ -134,7 +134,7 @@ const Experience = () => {
           </div>
         </section>
       </div>
-      <footer className="w-full py-8 bg-white/5 backdrop-blur-sm">
+      <footer className="w-full py-8 bg-white/5 backdrop-blur-sm mt-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-portfolio-text/70">
             © {new Date().getFullYear()} Prem Poriya. All rights reserved.
