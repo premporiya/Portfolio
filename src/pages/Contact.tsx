@@ -204,9 +204,10 @@ const Contact = () => {
                 />
               </div>
 
-              <button
+              {/* <button
                 type="submit"
-                disabled={isSubmitting}
+                // disabled={isSubmitting}
+                disabled={true}
                 className="w-full px-6 py-3 bg-portfolio-primary text-white font-medium rounded-md hover:bg-portfolio-primary/90 transition-colors flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
@@ -217,6 +218,17 @@ const Contact = () => {
                     Send Message
                   </>
                 )}
+              </button> */}
+              <button
+                type="button" // 👈 Important: prevents form submission
+                onClick={() => {
+                  alert("This feature is under maintenance.");
+                  window.location.reload();
+                }}
+                className="w-full px-6 py-3 bg-portfolio-primary text-white font-medium rounded-md hover:bg-portfolio-primary/90 transition-colors flex items-center justify-center gap-2"
+              >
+                <Send size={16} />
+                Send Message
               </button>
             </form>
           </div>
