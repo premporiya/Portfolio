@@ -15,9 +15,9 @@ const Home = () => {
 
   // Experience preview
   const previewExperience = {
-    title: "Senior Frontend Developer",
-    company: "Tech Solutions Inc.",
-    duration: "2022 - Present",
+    title: "FullStake Developer",
+    company: "FullFillment IQ",
+    duration: "2024 - Present",
     description:
       "Led a team of 5 developers in building responsive web applications",
   };
