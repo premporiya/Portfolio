@@ -15,11 +15,11 @@ const Home = () => {
 
   // Experience preview
   const previewExperience = {
-    title: "FullStake Developer",
+    title: "Full-Stack Developer",
     company: "FullFillment IQ",
     duration: "2024 - Present",
     description:
-      "Led a team of 5 developers in building responsive web applications",
+      "Full-stack developer with strong expertise in building responsive web apps and scalable solutions.",
   };
 
   // Projects preview
@@ -212,7 +212,7 @@ const Home = () => {
                       Contact Information
                     </h3>
                     <p className="mb-2 text-portfolio-text">
-                      <strong>Email:</strong> premmaharsh@gmail.com
+                      <strong>Email:</strong> poriyaprem2612@gmail.com
                     </p>
                     <p className="mb-2 text-portfolio-text">
                       <strong>Phone:</strong> +1 (437) 661-0376
