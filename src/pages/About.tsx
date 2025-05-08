@@ -97,7 +97,7 @@ const About = () => {
                 {/* <li>• Full Stack Web Development</li>
                  <li>• UI/UX Design Fundamentals</li>
                     <li>• Advanced JavaScript</li> */}
-                <li>• C - Proggraming</li>
+                <li>• C - Programming</li>
                 <li>• Python</li>
                 <li>• Microsoft</li>
               </ul>
