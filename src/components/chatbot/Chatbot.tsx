@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
+import { MessageCircleCode, X } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast"; // ✅ import toast
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,7 @@ const Chatbot = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast(); // ✅ initialize toast
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -64,17 +66,28 @@ const Chatbot = () => {
     };
   }, [isOpen]);
 
+  const handleChatIconClick = () => {
+    // ✅ Only show toast, don't open the chatbot box
+    toast({
+      title: "Under Maintenance 🚧",
+      description: "This application is currently under maintenance.",
+    });
+
+    // Do NOT toggle isOpen
+    // setIsOpen(!isOpen); ❌ Removed this line
+  };
+
   return (
     <div>
       {/* Floating Chat Icon */}
       <div
         className="fixed bottom-4 right-4 bg-blue-600 text-white rounded-full p-3 cursor-pointer shadow-md z-50 transition-all hover:bg-blue-700 hover:scale-105"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleChatIconClick}
       >
-        Chat with me...
+        <MessageCircleCode />
       </div>
 
-      {/* Chat Window */}
+      {/* Chat Window - won't render unless isOpen = true */}
       {isOpen && (
         <div
           ref={chatRef}
