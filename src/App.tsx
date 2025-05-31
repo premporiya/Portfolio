@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,6 +10,7 @@ import Experience from "./pages/Experience";
 import Contact from "./pages/Contact";
 import Resume from "./pages/Resume";
 import NotFound from "./pages/NotFound";
+import Chatbot from "./components/chatbot/Chatbot";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +21,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Layout>
+          <Chatbot />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

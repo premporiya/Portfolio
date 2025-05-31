@@ -32,39 +32,40 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:8080/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbyNN5yrtMcCOQfU8MBrKsHoCZdI9Wcljdo5MjHDeJMAgVzE-SxGjnMj-OM8ilNSWKj7hw/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
       });
 
-      if (response.ok) {
-        toast({
-          title: "Message sent!",
-          description: "Thank you for reaching out. I'll get back to you soon.",
-        });
-
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      } else {
-        const data = await response.json();
-        throw new Error(data.detail || "Something went wrong");
-      }
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
     } catch (err: any) {
       toast({
         title: "Error",
-        description: err.message,
+        description: "Something went wrong while submitting the form.",
       });
+      console.error(err);
     } finally {
       setIsSubmitting(false);
     }
   };
+
   return (
     <div className="min-h-screenflex flex-col ">
       <main className="flex flex-col min-h-screen">
@@ -92,7 +93,7 @@ const Contact = () => {
                   <div>
                     <p className="text-sm text-portfolio-text/70">Email</p>
                     <a
-                      href="mailto:your.email@example.com"
+                      href="mailto:poriyaprem2612@gmail.com"
                       className="text-portfolio-text hover:text-portfolio-primary transition-colors"
                     >
                       poriyaprem2612@gmail.com
@@ -107,7 +108,7 @@ const Contact = () => {
                   <div>
                     <p className="text-sm text-portfolio-text/70">Phone</p>
                     <a
-                      href="tel:+1234567890"
+                      href="tel:+14376610376"
                       className="text-portfolio-text hover:text-portfolio-primary transition-colors"
                     >
                       +1 (437) 661-0376
@@ -121,7 +122,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-portfolio-text/70">Location</p>
-                    <p className="text-portfolio-text">Toronto, Cananda</p>
+                    <p className="text-portfolio-text">Toronto, Canada</p>
                   </div>
                 </div>
               </div>
@@ -205,31 +206,19 @@ const Contact = () => {
                   />
                 </div>
 
-                {/* <button
-                type="submit"
-                // disabled={isSubmitting}
-                disabled={true}
-                className="w-full px-6 py-3 bg-portfolio-primary text-white font-medium rounded-md hover:bg-portfolio-primary/90 transition-colors flex items-center justify-center gap-2"
-              >
-                {isSubmitting ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    <Send size={16} />
-                    Send Message
-                  </>
-                )}
-              </button> */}
                 <button
-                  type="button" // 👈 Important: prevents form submission
-                  onClick={() => {
-                    alert("This feature is under maintenance.");
-                    window.location.reload();
-                  }}
+                  type="submit"
+                  disabled={isSubmitting}
                   className="w-full px-6 py-3 bg-portfolio-primary text-white font-medium rounded-md hover:bg-portfolio-primary/90 transition-colors flex items-center justify-center gap-2"
                 >
-                  <Send size={16} />
-                  Send Message
+                  {isSubmitting ? (
+                    "Sending..."
+                  ) : (
+                    <>
+                      <Send size={16} />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             </div>

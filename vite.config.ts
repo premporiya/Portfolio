@@ -18,5 +18,11 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+     server: {
+    proxy: {
+      '/ask': 'http://localhost:5000'
+    }
+  }
   },
+  
 }));
